@@ -1,0 +1,14 @@
+
+{% extends 'Pharmacie/base.html' %}
+
+{% block content %}
+<h1 class="mb-4">Supprimer le médicament : {{ medicament.nom }}</h1>
+
+<p class="mb-3">Confirmez-vous la suppression ?</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Oui, supprimer</button>
+    <a href="{% url 'home' %}" class="btn btn-secondary">Annuler</a>
+</form>
+{% endblock %}
