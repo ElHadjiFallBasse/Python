@@ -1,6 +1,7 @@
 from django import forms
 from .models import Plat, Categorie
 
+
 class PlatForm(forms.ModelForm):
     class Meta:
         model = Plat
@@ -57,10 +58,19 @@ class ReservationForm(forms.ModelForm):
 
 
 
+
+
+
 from django import forms
-from .models import Commande
+from .models import CommandeProduit, ItemCommande
 
 class CommandeForm(forms.ModelForm):
     class Meta:
-        model = Commande
-        fields = ['plat', 'quantite']
+        model = CommandeProduit
+        # ne mettre que les champs existants
+        fields = ['client','est_validee']  # par exemple
+
+class ItemCommandeForm(forms.ModelForm):
+    class Meta:
+        model = ItemCommande
+        fields = ['produit', 'quantite']

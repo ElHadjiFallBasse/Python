@@ -1,0 +1,5 @@
+<h1>Commande validée !</h1>
+<p>Merci {{ commande.client.username }} pour votre commande.</p>
+<p>Numéro de commande : {{ commande.id }}</p>
+<p>Date : {{ commande.date_commande }}</p>
+<a href="{% url 'liste_produits' %}">Commander à nouveau</a>

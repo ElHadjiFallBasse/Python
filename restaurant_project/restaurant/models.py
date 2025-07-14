@@ -51,3 +51,37 @@ class Reservation(models.Model):
 
     def __str__(self):
         return f"Réservation de {self.nom} pour le {self.date} à {self.heure}"
+
+
+from django.db import models
+from django.contrib.auth.models import User
+
+class Produit(models.Model):
+    nom = models.CharField(max_length=200)
+    prix = models.DecimalField(max_digits=8, decimal_places=2)
+    description = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.nom
+
+class CommandeProduit(models.Model):
+    client = models.ForeignKey(User, on_delete=models.CASCADE)
+    date_commande = models.DateTimeField(auto_now_add=True)
+    est_validee = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"Commande #{self.id} - Client: {self.client.username}"
+
+    def total(self):
+        return sum(item.total() for item in self.items.all())
+
+class ItemCommande(models.Model):
+    commande = models.ForeignKey(Commande, related_name='items', on_delete=models.CASCADE)
+    produit = models.ForeignKey(Produit, on_delete=models.CASCADE)
+    quantite = models.PositiveIntegerField(default=1)
+
+    def __str__(self):
+        return f"{self.quantite} x {self.produit.nom}"
+
+    def total(self):
+        return self.quantite * self.produit.prix
