@@ -1,0 +1,27 @@
+
+{% block content %}
+<h1>Commande du plat : {{ plat.nom }}</h1>
+
+<div style="max-width: 600px; margin: auto;">
+    <img src="{{ plat.image.url }}" alt="{{ plat.nom }}" style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 10px;">
+
+    <h2>Description</h2>
+    <p>{{ plat.description }}</p>
+
+    <h3>Catégorie : {{ plat.categorie.nom }}</h3>
+
+    <h3>Prix : {{ plat.prix }} FCFA</h3>
+
+    <h3>Détails supplémentaires :</h3>
+    <ul>
+        <li>ID : {{ plat.id }}</li>
+        <!-- Ajoute ici d’autres champs si tu en as -->
+    </ul>
+
+    <!-- Par exemple un bouton pour confirmer la commande -->
+    <form method="post" action="{% url 'valider_commande' plat.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Confirmer la commande</button>
+    </form>
+</div>
+{% endblock %}

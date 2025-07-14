@@ -1,0 +1,15 @@
+{% extends 'gestion/base.html' %}
+{% block content %}
+<h2>Liste des appartements</h2>
+<a href="/appartements/ajouter/" class="btn btn-primary mb-3">Ajouter un appartement</a>
+<table class="table table-bordered">
+    <tr>
+        <th>Adresse</th><th>Ville</th><th>Prix</th><th>Client</th>
+    </tr>
+    {% for a in appartements %}
+    <tr>
+        <td>{{ a.adresse }}</td><td>{{ a.ville }}</td><td>{{ a.prix }}</td><td>{{ a.client }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

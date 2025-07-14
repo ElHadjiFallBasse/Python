@@ -1,0 +1,41 @@
+body {
+    background-color: #F9FAF9;
+    font-family: Arial, sans-serif;
+    color: #000000;
+    padding: 30px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    border: 2px solid #077302;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h1 {
+    color: #077302;
+    text-align: center;
+}
+
+form button {
+    background-color: #077302;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #055c02;
+}
+
+a {
+    color: #077302;
+    text-decoration: none;
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+}

@@ -1,0 +1,270 @@
+/* style.css */
+
+/* Reset et bases */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fff8f0;
+  color: #3e3e3e;
+  line-height: 1.6;
+}
+
+/* Navbar stylée */
+nav.navbar {
+  background: linear-gradient(90deg, #d16ba5 0%, #c777b9 50%, #a54a86 100%);
+  box-shadow: 0 4px 15px rgba(165, 74, 134, 0.5);
+  transition: background 0.5s ease;
+}
+nav.navbar .navbar-brand {
+  font-weight: 800;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  color: #fff !important;
+  text-transform: uppercase;
+}
+nav.navbar .nav-link {
+  font-weight: 600;
+  color: #ffe7f1 !important;
+  transition: color 0.3s ease;
+}
+nav.navbar .nav-link:hover,
+nav.navbar .nav-link.active {
+  color: #ff69b4 !important;
+  text-shadow: 0 0 8px #ff69b4;
+}
+nav.navbar.sticky-top.scrolled {
+  background: #a54a86;
+  box-shadow: 0 2px 10px rgba(165, 74, 134, 0.8);
+}
+
+/* Hero amélioré */
+.hero {
+  background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat fixed;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(213, 72, 126, 0.6) 0%, rgba(165, 74, 134, 0.7) 100%);
+  z-index: 1;
+}
+.hero > div {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  text-align: center;
+  animation: fadeInUp 1.5s ease forwards;
+}
+.hero h1 {
+  font-size: 4.5rem;
+  font-weight: 900;
+  margin-bottom: 0.3rem;
+  letter-spacing: 5px;
+}
+.hero p.lead {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  color: #ffe7f1;
+}
+.hero a.btn {
+  padding: 1rem 3rem;
+  font-size: 1.3rem;
+  border-radius: 50px;
+  box-shadow: 0 6px 15px rgba(255, 105, 180, 0.6);
+  transition: all 0.4s ease;
+}
+.hero a.btn:hover {
+  background-color: #ff4081;
+  box-shadow: 0 10px 20px rgba(255, 64, 129, 0.9);
+  transform: translateY(-5px);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Section Menu */
+#menu {
+  background: #fff0f6;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+#menu h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #a54a86;
+  margin-bottom: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+#menu .card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 20px rgba(165, 74, 134, 0.2);
+  cursor: pointer;
+  background: #fff;
+}
+#menu .card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(165, 74, 134, 0.4);
+}
+#menu .card-img-top {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  height: 230px;
+  object-fit: cover;
+}
+#menu .card-body {
+  padding: 1.5rem;
+}
+#menu .card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #d16ba5;
+}
+#menu .card-text {
+  font-size: 1rem;
+  color: #555;
+  min-height: 60px;
+}
+#menu .fw-bold {
+  font-size: 1.2rem;
+  color: #a54a86;
+}
+
+/* Section À propos */
+#about {
+  padding: 5rem 2rem;
+  background: #ffe7f1;
+  text-align: center;
+}
+#about h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #d16ba5;
+  margin-bottom: 1.5rem;
+}
+#about p {
+  font-size: 1.3rem;
+  max-width: 720px;
+  margin: 0 auto;
+  font-style: italic;
+  color: #7a3e68;
+}
+
+/* Section Contact */
+#contact {
+  background: #fff0f6;
+  padding: 5rem 2rem;
+}
+#contact h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #a54a86;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+#contact form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(165, 74, 134, 0.2);
+}
+#contact label {
+  font-weight: 600;
+  color: #7a3e68;
+}
+#contact input,
+#contact textarea {
+  border-radius: 10px;
+  border: 2px solid #d16ba5;
+  padding: 0.8rem 1rem;
+  transition: border-color 0.3s ease;
+}
+#contact input:focus,
+#contact textarea:focus {
+  outline: none;
+  border-color: #ff69b4;
+  box-shadow: 0 0 8px #ff69b4;
+}
+#contact button {
+  background: linear-gradient(45deg, #d16ba5, #a54a86);
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 0;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: white;
+  width: 100%;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(165, 74, 134, 0.5);
+  transition: background 0.4s ease, transform 0.3s ease;
+}
+#contact button:hover {
+  background: linear-gradient(45deg, #ff69b4, #d16ba5);
+  transform: scale(1.05);
+}
+
+/* Section Réservation */
+#reservation {
+  background: linear-gradient(135deg, #a54a86 0%, #d16ba5 100%);
+  padding: 5rem 2rem;
+  color: white;
+}
+#reservation h2 {
+  font-weight: 900;
+  font-size: 2.8rem;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+}
+#reservation a.btn {
+  background: #fff;
+  color: #a54a86;
+  font-weight: 700;
+  padding: 1rem 3rem;
+  border-radius: 50px;
+  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.7);
+  transition: all 0.4s ease;
+}
+#reservation a.btn:hover {
+  background: #ff69b4;
+  color: #fff;
+  box-shadow: 0 10px 20px rgba(255, 105, 180, 0.9);
+  transform: translateY(-5px);
+}
+
+/* Footer */
+footer {
+  background: #3e1d3c;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+  #menu h2,
+  #about h2,
+  #contact h2,
+  #reservation h2 {
+    font-size: 2rem;
+  }
+}

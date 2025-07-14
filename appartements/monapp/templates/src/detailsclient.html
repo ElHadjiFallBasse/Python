@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Détails Client</title>
+    <link rel="stylesheet" href="{% static 'css/detailsclient.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Détails du Client : {{ client.prenom }} {{ client.nom }} </h1>
+        <ul>
+            <li><strong>Nom :</strong> {{ client.nom }}</li>
+            <li><strong>Prénom :</strong> {{ client.prenom }}</li>
+            <li><strong>Email :</strong> {{ client.email }}</li>
+            <li><strong>Adresse :</strong> {{ client.adresse }}</li>
+            <li><strong>Téléphone :</strong> {{ client.telephone }}</li>
+            <li><strong>Appartements :</strong>
+                <ul>
+                    {% for appart in client.appartements.all %}
+                    <li>{{ appart.nom }} - {{ appart.adresse }}</li>
+                    {% empty %}
+                    <li>Aucun appartement associé.</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        </ul>
+        <a href="{% url 'gestion' %}">Retour</a>
+    </div>
+</body>
+</html>

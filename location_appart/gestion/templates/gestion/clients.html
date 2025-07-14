@@ -1,0 +1,15 @@
+{% extends 'gestion/base.html' %}
+{% block content %}
+<h2>Liste des clients</h2>
+<a href="/clients/ajouter/" class="btn btn-primary mb-3">Ajouter un client</a>
+<table class="table table-bordered">
+    <tr>
+        <th>Nom</th><th>Email</th><th>Téléphone</th>
+    </tr>
+    {% for c in clients %}
+    <tr>
+        <td>{{ c.nom }}</td><td>{{ c.email }}</td><td>{{ c.telephone }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

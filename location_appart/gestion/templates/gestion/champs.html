@@ -1,0 +1,15 @@
+{% extends 'gestion/base.html' %}
+{% block content %}
+<h2>Liste des champs</h2>
+<a href="/champs/ajouter/" class="btn btn-primary mb-3">Ajouter un champ</a>
+<table class="table table-bordered">
+    <tr>
+        <th>Appartement</th><th>Nom</th><th>Valeur</th>
+    </tr>
+    {% for ch in champs %}
+    <tr>
+        <td>{{ ch.appartement }}</td><td>{{ ch.nom }}</td><td>{{ ch.valeur }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

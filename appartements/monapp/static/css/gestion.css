@@ -1,0 +1,192 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #eef2f7;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    background: linear-gradient(135deg, #4b6cb7, #182848);
+    color: #fff;
+    padding: 50px 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+header h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+header .desc {
+    font-size: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* Main Section Layout */
+.section-container {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+}
+
+.form-container, .table-container {
+    background: #ffffff;
+    padding: 30px 25px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-container:hover, .table-container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2, .table-container h2 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* Forms */
+form input[type="text"],
+form input[type="email"],
+form input[type="file"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 14px 15px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    background-color: #fafafa;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    border-color: #4b6cb7;
+    box-shadow: 0 0 5px rgba(75, 108, 183, 0.3);
+    outline: none;
+}
+
+form button {
+    background: linear-gradient(135deg, #4b6cb7, #182848);
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover {
+    background: linear-gradient(135deg, #3a539b, #1c2833);
+    transform: translateY(-2px);
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    font-size: 0.95rem;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: left;
+    background-color: #fff;
+}
+
+table th {
+    background-color: #4b6cb7;
+    color: #fff;
+    border-radius: 8px 8px 0 0;
+}
+
+table tr {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+table tr:hover {
+    background-color: #f9f9f9;
+}
+
+table td:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+table td:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* Action Links */
+.table-container a {
+    color: #4b6cb7;
+    text-decoration: none;
+    margin: 0 6px;
+    font-weight: 500;
+}
+
+.table-container a:hover {
+    text-decoration: underline;
+}
+
+/* Images */
+.table-container img {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    max-width: 100px;
+    height: auto;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .section-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    header h2 {
+        font-size: 1.4rem;
+    }
+
+    .form-container, .table-container {
+        padding: 20px 15px;
+    }
+}

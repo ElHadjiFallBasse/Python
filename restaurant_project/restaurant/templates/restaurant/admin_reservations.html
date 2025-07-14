@@ -1,0 +1,21 @@
+<h2>Gestion des Réservations</h2>
+<table class="table">
+  <tr>
+    <th>Nom</th><th>Email</th><th>Date</th><th>Heure</th><th>Personnes</th><th>Confirmée</th><th>Actions</th>
+  </tr>
+  {% for res in reservations %}
+  <tr>
+    <td>{{ res.nom }}</td>
+    <td>{{ res.email }}</td>
+    <td>{{ res.date }}</td>
+    <td>{{ res.heure }}</td>
+    <td>{{ res.nombre_personnes }}</td>
+    <td>{{ res.confirme|yesno:"Oui,Non" }}</td>
+    <td>
+      {% if not res.confirme %}
+        <a href="{% url 'confirmer_reservation' res.id %}" class="btn btn-success btn-sm">Confirmer</a>
+      {% endif %}
+    </td>
+  </tr>
+  {% endfor %}
+</table>

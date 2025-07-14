@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion Appartements</title>
+
+<link rel="stylesheet" href="{% static 'css/gestion.css' %}">
+</head>
+<body>
+    <header>
+        <h1>SUNU APPARTEMENT</h1>
+        <h2>Bienvenue dans la page de gestion de nos appartements</h2>
+        <p class="desc">Vous allez pouvoir gérer les clients et les appartements, modifier, supprimer et voir les détails en même temps gérer les fonctions de Courtage très facilement avec cette plateforme.</p>
+    </header>
+
+    <main>
+        <!-- Section Clients -->
+        <section class="section-container">
+            <div class="form-container">
+                <h2>Ajouter un client</h2>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ client_form.as_p }}
+                    <button type="submit" name="ajouter_client">Ajouter Client</button>
+                </form>
+            </div>
+
+            <div class="table-container">
+                <h2>Liste des Clients</h2>
+                <table>
+    <tr>
+        <th>Photo</th>  <!-- ✅ -->
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Email</th>
+        <th>Actions</th>
+    </tr>
+    {% for client in clients %}
+    <tr>
+        <td>
+            {% if client.image %}
+                <img src="{{ client.image.url }}" alt="Photo de {{ client.nom }}" style="width: 60px; height: 60px; border-radius: 50%; border: 1px solid #ccc;">
+            {% else %}
+                <img src="{% static 'images/default-avatar.png' %}" alt="Avatar" style="width: 60px; height: 60px; border-radius: 50%; border: 1px solid #ccc;">
+            {% endif %}
+        </td>
+        <td>{{ client.nom }}</td>
+        <td>{{ client.prenom }}</td>
+        <td>{{ client.email }}</td>
+        <td>
+            <a href="{% url 'detail_client' client.id %}">Détails</a> |
+            <a href="{% url 'modifier_client' client.id %}">Modifier</a> |
+            <a href="{% url 'supprimer_client' client.id %}">Supprimer</a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="5">Aucun client</td></tr>
+    {% endfor %}
+</table>
+
+            </div>
+        </section>
+
+        <!-- Section Appartements -->
+        <section class="section-container">
+            <div class="form-container">
+                <h2>Ajouter un Appartement</h2>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ appart_form.as_p }}
+                    <button type="submit" name="ajouter_appart">Ajouter Appartement</button>
+                </form>
+            </div>
+
+            <div class="table-container">
+                <h2>Liste des Appartements</h2>
+                <table>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Adresse</th>
+                        <th>Niveau</th>
+                        <th>Photo</th>
+                        <th>Actions</th>
+                    </tr>
+                    {% for appart in appartements %}
+                    <tr>
+                        <td>{{ appart.nom }}</td>
+                        <td>{{ appart.adresse }}</td>
+                        <td>{{ appart.niveau }} ★</td>
+                        <td>
+                            {% if appart.image %}
+                                <img src="{{ appart.image.url }}" alt="Photo de {{ appart.nom }}" style="width: 100px; height: auto;">
+                            {% else %}
+                                Aucune image
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="{% url 'detail_appart' appart.id %}">Détails</a> |
+                            <a href="{% url 'modifier_appart' appart.id %}">Modifier</a> |
+                            <a href="{% url 'supprimer_appart' appart.id %}">Supprimer</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr><td colspan="5">Aucun appartement</td></tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

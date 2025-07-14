@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier Appartement</title>
+    <link rel="stylesheet" href="{% static 'css/modifierappart.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Modifier l'Appartement</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Enregistrer</button>
+        </form>
+        <a href="{% url 'gestion' %}"> Retour</a>
+    </div>
+</body>
+</html>

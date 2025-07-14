@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Détails Appartement</title>
+    <link rel="stylesheet" href="{% static 'css/detailsappart.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Détails de l'Appartement</h1>
+        <ul>
+            <li><strong>Nom :</strong> {{ appart.nom }}</li>
+            <li><strong>Adresse :</strong> {{ appart.adresse }}</li>
+            <li><strong>Surface :</strong> {{ appart.surface }} m²</li>
+            <li><strong>Nombre de chambres :</strong> {{ appart.nombre_chambre }}</li>
+            <li><strong>Niveau :</strong> {{ appart.niveau }} ★</li>
+            <li><strong>Clients :</strong>
+                <ul>
+                    {% for client in appart.clients.all %}
+                    <li>{{ client.nom }} {{ client.prenom }}</li>
+                    {% empty %}
+                    <li>Aucun client associé.</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        </ul>
+        <a href="{% url 'gestion' %}">Retour</a>
+    </div>
+</body>
+</html>
